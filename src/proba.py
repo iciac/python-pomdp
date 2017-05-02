@@ -11,6 +11,50 @@ class klasa1:
             self.actions = actions
             self.observations = observations
 
+listaVar=[]
+
+for child in root:
+        if child.tag == 'Description':
+            description = child.text
+        elif child.tag == 'Discount':
+            discount = float(child.text)
+for child in root.findall('Variable'):
+        states=[]
+        actions=[]
+        observations=[]
+        lista_nova=[]
+        for k in child:
+            for m in k:
+                if m.tag == 'ValueEnum':
+                    pom = m.text.split(' ')
+                    if k.tag == 'StateVar':
+                        states += pom
+                    elif k.tag == 'ActionVar':
+                        actions=pom
+                    elif k.tag == 'ObsVar':
+                        observations=pom
+
+                elif m.tag == 'NumValue':
+                    for t in range(1,int(m.text)+1):
+                        if k.tag == 'StateVar':
+                            states.append('s%s'%t)
+                        elif k.tag == 'ActionVar':
+                            actions.append('s%s'%t)
+                        elif k.tag == 'ObsVar':
+                            observations.append('s%s'%t)
+
+
+        objekt = klasa1(description, discount, states, actions, observations)
+        listaVar.append(objekt)
+
+print(listaVar[0].states)
+print(listaVar[0].observations)
+print(listaVar[0].actions)
+
+
+
+print("Bok")
+
 
 '''
 for child in root:
@@ -35,27 +79,3 @@ for child in root:
         print l.attrib['vnamePrev']
         print l.attrib.keys()
 '''
-listaVar=[]
-
-for child in root:
-        if child.tag == 'Description':
-            description = child.text
-        elif child.tag == 'Discount':
-            discount = float(child.text)
-for child in root.findall('Variable'):
-        states=[]
-        actions=[]
-        observations=[]
-        for k in child.findall('StateVar'):
-            states.append(k.attrib['vnameCurr'])
-        for k in child.findall('ActionVar'):
-            actions.append(k.attrib['vname'])
-        for k in child.findall('ObsVar'):
-            observations.append(k.attrib['vname'])
-        objekt = klasa1(description, discount, states, actions, observations)
-        listaVar.append(objekt)
-
-print(listaVar[0].states)
-
-
-print("Bok")

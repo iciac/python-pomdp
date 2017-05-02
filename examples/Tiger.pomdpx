@@ -14,6 +14,10 @@
         <ValueEnum>tiger-left tiger-right</ValueEnum>
     </StateVar>
 
+    <StateVar vnamePrev="state_0" vnameCurr="state_1" fullyObs="false">
+        <NumValue>5</NumValue>
+    </StateVar>
+
     <ObsVar vname="obs_sensor">
         <ValueEnum>obs-left obs-right</ValueEnum>
     </ObsVar>
@@ -21,6 +25,8 @@
     <ActionVar vname="action_agent">
         <ValueEnum>listen open-left open-right</ValueEnum>
     </ActionVar>
+
+
 
     <RewardVar vname="reward_agent"/>
 </Variable>
