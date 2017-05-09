@@ -1,7 +1,11 @@
 import xml.etree.ElementTree as ET
+import numpy as np
+
 e=ET.parse('../examples/Tiger.pomdpx').getroot()
 tree = ET.parse('../examples/Tiger.pomdpx')
 root = tree.getroot()
+
+
 
 class klasa1:
 	 def __init__(self,description,discount,states,actions,observations):
@@ -52,8 +56,66 @@ print(listaVar[0].observations)
 print(listaVar[0].actions)
 
 
+for k in root.findall('InitialStateBelief'):
+       IsbList=[]
+       for m in k.findall('CondProb'):
+           for n in m.findall('Parameter'):
+                for o in n.findall('Entry'):
+                    for p in o.findall('ProbTable'):
+                        pom1=p.text.split(' ')
+                        for x in pom1:
+                            IsbList.append(float(x))
+                            IsbVector=np.array(IsbList)
+
+
+
+
+print(IsbVector)
+
 
 print("Bok")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 '''
