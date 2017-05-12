@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Policy version="0.1" type="value" model="./functional_imitation.pomdpx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="policyx.xsd">
+<AlphaVector vectorLength="5" numObsValue="1" numVectors="5">
+<Vector action="2" obsValue="0">-200 -200 -200 -200 200 </Vector>
+<Vector action="1" obsValue="0">180.408 181.017 182.3 191 180 </Vector>
+<Vector action="0" obsValue="0">181.983 182.592 186.725 188 180 </Vector>
+<Vector action="0" obsValue="0">182.731 184.694 185.3 188 180 </Vector>
+<Vector action="0" obsValue="0">183.73 184.017 185.3 188 180 </Vector>
+</AlphaVector> </Policy>

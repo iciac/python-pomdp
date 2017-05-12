@@ -76,6 +76,8 @@ ObservationFunctionDictionary = funcs_matrix.getMatrix('ObsFunction', root)
 print(StateTransitionDictionary['drink'])
 print(ObservationFunctionDictionary['drink'])
 
+print(StateTransitionDictionary)
+print(ObservationFunctionDictionary)
 
 '''
 StateTransitionDictionary={}
