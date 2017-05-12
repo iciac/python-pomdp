@@ -44,23 +44,24 @@
 <StateTransitionFunction>
  
 <CondProb>
-<Var>state_1</Var>
-<Parent>action_agent state_0</Parent>
-<Parameter type = "TBL">
+    <Var>state_1</Var>
+    <Parent>action_agent state_0</Parent>
+    <Parameter type = "TBL">
+        <Entry>
+            <Instance>listen - -</Instance>
+            <ProbTable>identity</ProbTable>
+        </Entry>
     <Entry>
-        <Instance>listen - -</Instance>
-        <ProbTable>identity</ProbTable>
+        <Instance>open-left * *</Instance>
+        <ProbTable>0.5</ProbTable>
     </Entry>
-<Entry>
-    <Instance>open-left * *</Instance>
-    <ProbTable>0.5</ProbTable>
-</Entry>
-<Entry>
-    <Instance>open-right * *</Instance>
-    <ProbTable>0.5</ProbTable>
-</Entry>
-</Parameter>
+    <Entry>
+        <Instance>open-right * *</Instance>
+        <ProbTable>0.5</ProbTable>
+    </Entry>
+    </Parameter>
 </CondProb>
+
 </StateTransitionFunction>
 
 <ObsFunction>

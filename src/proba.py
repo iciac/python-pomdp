@@ -1,8 +1,9 @@
 import xml.etree.ElementTree as ET
 import numpy as np
+import funcs_matrix
 
 e=ET.parse('../examples/Tiger.pomdpx').getroot()
-tree = ET.parse('../examples/Tiger.pomdpx')
+tree = ET.parse('../examples/functional_imitation.pomdpx')
 root = tree.getroot()
 
 
@@ -67,11 +68,53 @@ for k in root.findall('InitialStateBelief'):
                             IsbList.append(float(x))
                             IsbVector=np.array(IsbList)
 
-
-
-
 print(IsbVector)
 
+StateTransitionDictionary = funcs_matrix.getMatrix('StateTransitionFunction', root)
+ObservationFunctionDictionary = funcs_matrix.getMatrix('ObsFunction', root)
+
+print(StateTransitionDictionary['drink'])
+print(ObservationFunctionDictionary['drink'])
+
+
+'''
+StateTransitionDictionary={}
+for k in root.findall('StateTransitionFunction'):
+    for m in k.findall('CondProb'):
+       for n in m.findall('Parameter'):
+            for o in n.findall('Entry'):
+                key = o.find('Instance').text.split(' ')[0]
+                for p in o.findall('ProbTable'):
+                    StateTransitionList=[]
+                    pom2=p.text.split('\n')
+                    for x in pom2:
+                        pom3=x.split(' ')
+                        for y in pom3:
+                            if y!='':
+                                StateTransitionList.append(float(y))
+                StateTransitionVector=np.array(StateTransitionList).reshape(7,7)
+                StateTransitionDictionary[key] = StateTransitionVector
+print(StateTransitionDictionary['end'])
+
+
+ObservationFunctionDictionary={}
+for k in root.findall('ObsFunction'):
+    for m in k.findall('CondProb'):
+       for n in m.findall('Parameter'):
+            for o in n.findall('Entry'):
+                key = o.find('Instance').text.split(' ')[0]
+                for p in o.findall('ProbTable'):
+                    ObservationFunctionList=[]
+                    pom2=p.text.split('\n')
+                    for x in pom2:
+                        pom3=x.split(' ')
+                        for y in pom3:
+                            if y!='':
+                                ObservationFunctionList.append(float(y))
+                ObservationFunctionVector=np.array(ObservationFunctionList).reshape(7,2)
+                ObservationFunctionDictionary[key] = ObservationFunctionVector
+print(ObservationFunctionDictionary['end'])
+'''
 
 print("Bok")
 
