@@ -1,23 +1,30 @@
 import xml.etree.ElementTree as ET
 import numpy as np
 import funcs_matrix
+import funcs_import_policy
+import funcs_get_actions
+import funcs_belief_update
 
-e=ET.parse('../examples/Tiger.pomdpx').getroot()
-tree = ET.parse('../examples/functional_imitation.pomdpx')
-root = tree.getroot()
+root = ET.parse('../examples/functional_imitation.pomdpx').getroot()
+
+PolicyVectorsList, BestActionsList = funcs_import_policy.importPolicy()
+    #importing policy and best action vectors
 
 
 
-class klasa1:
-	 def __init__(self,description,discount,states,actions,observations):
+
+class Class_general:
+    def __init__(self,description,discount,states,actions,observations):
             self.description = description
             self.discount = discount
             self.states = states
             self.actions = actions
             self.observations = observations
+            self.BestActionsList = BestActionsList
+            self.PolicyVectorsList= PolicyVectorsList
+
 
 listaVar=[]
-
 for child in root:
         if child.tag == 'Description':
             description = child.text
@@ -49,7 +56,7 @@ for child in root.findall('Variable'):
                             observations.append('s%s'%t)
 
 
-        objekt = klasa1(description, discount, states, actions, observations)
+        objekt = Class_general(description, discount, states, actions, observations)
         listaVar.append(objekt)
 
 print(listaVar[0].states)
@@ -70,53 +77,18 @@ for k in root.findall('InitialStateBelief'):
 
 print(IsbVector)
 
+
+
+BestAction = funcs_get_actions.get_actions(IsbVector, PolicyVectorsList, BestActionsList)
+print BestActionsList
+print BestAction
+
 StateTransitionDictionary = funcs_matrix.getMatrix('StateTransitionFunction', root)
 ObservationFunctionDictionary = funcs_matrix.getMatrix('ObsFunction', root)
 
-print(StateTransitionDictionary['drink'])
-print(ObservationFunctionDictionary['drink'])
+Bzvz= [0.0, 0.5, 0.25, 0.0, 0.0, 0.0, 0.25]
 
-print(StateTransitionDictionary)
-print(ObservationFunctionDictionary)
-
-'''
-StateTransitionDictionary={}
-for k in root.findall('StateTransitionFunction'):
-    for m in k.findall('CondProb'):
-       for n in m.findall('Parameter'):
-            for o in n.findall('Entry'):
-                key = o.find('Instance').text.split(' ')[0]
-                for p in o.findall('ProbTable'):
-                    StateTransitionList=[]
-                    pom2=p.text.split('\n')
-                    for x in pom2:
-                        pom3=x.split(' ')
-                        for y in pom3:
-                            if y!='':
-                                StateTransitionList.append(float(y))
-                StateTransitionVector=np.array(StateTransitionList).reshape(7,7)
-                StateTransitionDictionary[key] = StateTransitionVector
-print(StateTransitionDictionary['end'])
-
-
-ObservationFunctionDictionary={}
-for k in root.findall('ObsFunction'):
-    for m in k.findall('CondProb'):
-       for n in m.findall('Parameter'):
-            for o in n.findall('Entry'):
-                key = o.find('Instance').text.split(' ')[0]
-                for p in o.findall('ProbTable'):
-                    ObservationFunctionList=[]
-                    pom2=p.text.split('\n')
-                    for x in pom2:
-                        pom3=x.split(' ')
-                        for y in pom3:
-                            if y!='':
-                                ObservationFunctionList.append(float(y))
-                ObservationFunctionVector=np.array(ObservationFunctionList).reshape(7,2)
-                ObservationFunctionDictionary[key] = ObservationFunctionVector
-print(ObservationFunctionDictionary['end'])
-'''
+NewBelief = funcs_belief_update.belief_update(Bzvz, 'jump', 'no', StateTransitionDictionary, ObservationFunctionDictionary)
 
 print("Bok")
 
