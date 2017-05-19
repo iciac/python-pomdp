@@ -1,9 +1,11 @@
-import xml.etree.ElementTree as ET
 import numpy as np
-import funcs_matrix
-import funcs_import_policy
-import funcs_get_actions
+import xml.etree.ElementTree as ET
+
 import funcs_belief_update
+from pomdpx_parser import funcs_import_policy
+from pomdpx_parser import funcs_matrix
+import funcs_get_actions
+from pomdp import POMDP
 
 root = ET.parse('../examples/functional_imitation.pomdpx').getroot()
 
@@ -57,6 +59,7 @@ for child in root.findall('Variable'):
 
 
         objekt = Class_general(description, discount, states, actions, observations)
+        print(objekt.description)
         listaVar.append(objekt)
 
 print(listaVar[0].states)
@@ -86,19 +89,19 @@ print BestAction
 StateTransitionDictionary = funcs_matrix.getMatrix('StateTransitionFunction', root)
 ObservationFunctionDictionary = funcs_matrix.getMatrix('ObsFunction', root)
 
-Bzvz= [0.0, 0.5, 0.25, 0.0, 0.0, 0.0, 0.25]
+Bzvz= [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-NewBelief = funcs_belief_update.belief_update(Bzvz, 'jump', 'no', StateTransitionDictionary, ObservationFunctionDictionary)
+NewBelief = funcs_belief_update.belief_update(Bzvz, 'drink', 'no', StateTransitionDictionary, ObservationFunctionDictionary)
+NewBelief = funcs_belief_update.belief_update(NewBelief, 'drink', 'yes', StateTransitionDictionary, ObservationFunctionDictionary)
+NewBelief = funcs_belief_update.belief_update(NewBelief, 'jump', 'no', StateTransitionDictionary, ObservationFunctionDictionary)
+NewBelief = funcs_belief_update.belief_update(NewBelief, 'jump', 'yes', StateTransitionDictionary, ObservationFunctionDictionary)
 
+print(NewBelief)
 print("Bok")
 
 
 
-
-
-
-
-
+model = POMDP('../examples/functional_imitation.pomdpx', '../examples/functional_imitation.policy')
 
 
 

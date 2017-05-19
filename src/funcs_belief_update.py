@@ -19,4 +19,4 @@ def belief_update(CurrentBelief, PerformedAction, ObservationProduced, StateTran
 
     NewBelief = ObservationVector * np.dot(np.transpose(TransitionMatrix), CurrentBeliefVector)
 
-    return NewBelief
+    return NewBelief/np.linalg.norm(NewBelief)
