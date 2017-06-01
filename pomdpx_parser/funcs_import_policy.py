@@ -1,10 +1,6 @@
-import xml.etree.ElementTree as ET
 import numpy as np
 
-root = ET.parse('../examples/functional_imitation.policy').getroot()
-
-def importPolicy():
-
+def importPolicy(root):
     for i in root.findall('AlphaVector'):
             PolicyVectorsField = []
             BestActionList = []
@@ -16,6 +12,5 @@ def importPolicy():
                    PolicyList.append(float(x))
                    PolicyVector=np.array(PolicyList)
                 PolicyVectorsField.append(PolicyVector)
-
     return PolicyVectorsField, BestActionList
 

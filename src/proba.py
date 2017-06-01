@@ -1,6 +1,5 @@
 import numpy as np
-import xml.etree.ElementTree as ET
-
+'''
 import funcs_belief_update
 from pomdpx_parser import funcs_import_policy
 from pomdpx_parser import funcs_matrix
@@ -11,10 +10,11 @@ root = ET.parse('../examples/functional_imitation.pomdpx').getroot()
 
 PolicyVectorsList, BestActionsList = funcs_import_policy.importPolicy()
     #importing policy and best action vectors
+'''
 
 
-
-
+'''
+dodana nova funkcija za ovo
 class Class_general:
     def __init__(self,description,discount,states,actions,observations):
             self.description = description
@@ -65,7 +65,15 @@ for child in root.findall('Variable'):
 print(listaVar[0].states)
 print(listaVar[0].observations)
 print(listaVar[0].actions)
+'''
 
+
+
+
+
+
+'''
+Dodana nova funkcija umjesto ovog dijela koda
 
 for k in root.findall('InitialStateBelief'):
        IsbList=[]
@@ -80,7 +88,7 @@ for k in root.findall('InitialStateBelief'):
 
 print(IsbVector)
 
-
+'''
 
 BestAction = funcs_get_actions.get_actions(IsbVector, PolicyVectorsList, BestActionsList)
 print BestActionsList

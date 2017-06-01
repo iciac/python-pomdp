@@ -1,3 +1,4 @@
+'''
 import numpy as np
 a=np.arange(4)
 b=np.transpose(a)
@@ -15,6 +16,7 @@ umnozak1=np.dot(Stupac, Stupac)
 umnozak2=np.dot(Stupac, np.transpose(Stupac))
 
 print umnozak1, umnozak2
+'''
 '''
 StateTransitionDictionary={}
 for k in root.findall('StateTransitionFunction'):
