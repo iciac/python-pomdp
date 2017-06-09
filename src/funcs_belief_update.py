@@ -1,17 +1,15 @@
 import numpy as np
 
-def belief_update(CurrentBelief, PerformedAction, ObservationProduced, StateTransitionDictionary, ObservationFunctionDictionary):
-    #PerformedAction mora biti u string formatu, tj. njeno ime
 
-    CurrentBeliefVector = np.transpose(CurrentBelief)
-    TransitionMatrix = StateTransitionDictionary[PerformedAction]
-    ObservationMatrix = ObservationFunctionDictionary[PerformedAction]
+def belief_update(current_belief, performed_action, observation_produced, state_transition_dictionary, observation_function_dictionary):
 
-    if ObservationProduced == 'yes':
-        ObservationVector = ObservationMatrix[:, 0]
+    current_belief_vector = np.transpose(current_belief)
+    transition_matrix = state_transition_dictionary[performed_action]
+    observation_matrix = observation_function_dictionary[performed_action]
+    if observation_produced == 'yes':
+        observation_vector = observation_matrix[:, 0]
     else:
-        ObservationVector = ObservationMatrix[:, 1]
+        observation_vector = observation_matrix[:, 1]
+    new_belief = observation_vector * np.dot(np.transpose(transition_matrix), current_belief_vector)
 
-    NewBelief = ObservationVector * np.dot(np.transpose(TransitionMatrix), CurrentBeliefVector)
-
-    return NewBelief/np.linalg.norm(NewBelief)
+    return new_belief/np.linalg.norm(new_belief)
