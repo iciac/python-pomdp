@@ -20,7 +20,8 @@ class POMDP:
         T = self.transition_probs[action]
         O = self.observation_probs[action][:, self.observations.index(observation)]
         self.belief = O * np.dot(np.transpose(T), self.belief)
-
+        # normalize belief
+        self.belief /= np.linalg.norm(self.belief)
         return self.belief
 
     def get_optimal_action(self):
@@ -47,7 +48,6 @@ if __name__ == '__main__':
     '''
     print(pomdp.actions)
     print(pomdp.observations)
-
 
     for k in range(10):
         print(pomdp.belief)
