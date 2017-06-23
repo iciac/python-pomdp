@@ -1,0 +1,120 @@
+\hypertarget{classpomdp_1_1POMDP}{}\section{pomdp.\+P\+O\+M\+DP Class Reference}
+\label{classpomdp_1_1POMDP}\index{pomdp.\+P\+O\+M\+DP@{pomdp.\+P\+O\+M\+DP}}
+
+
+Documentation for a class.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classpomdp_1_1POMDP_ac2ca0e5dba34bdfae5f27ec37d653246}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, model\+\_\+filename, policy\+\_\+filename)
+\begin{DoxyCompactList}\small\item\em The constructor. \end{DoxyCompactList}\item 
+def \hyperlink{classpomdp_1_1POMDP_a0c430ce50296aff651601fad666c695d}{get\+\_\+optimal\+\_\+action} (self)
+\begin{DoxyCompactList}\small\item\em Documentation for a method. \end{DoxyCompactList}\item 
+def \hyperlink{classpomdp_1_1POMDP_ab2fefd985014e5bba21c798f9fe22218}{update\+\_\+belief} (self, action, observation)
+\begin{DoxyCompactList}\small\item\em Documentation for a method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpomdp_1_1POMDP_ab936d6506f8610ccb8be4b58de8ec0e5}{observations}
+\item 
+\hyperlink{classpomdp_1_1POMDP_a4ddaceb23f7c3e37afc0da249475117d}{optimal\+\_\+actions}
+\item 
+\hyperlink{classpomdp_1_1POMDP_a46a42a6a078ee5c116004a48bd36293b}{belief}
+\item 
+\hyperlink{classpomdp_1_1POMDP_a3561b1af2cc307f204a67b99580faff7}{transition\+\_\+probs}
+\item 
+\hyperlink{classpomdp_1_1POMDP_a768131a4afac0d4d24404d12fa5f62fe}{observation\+\_\+probs}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Documentation for a class. 
+
+This class contains every variable used for mathematical calculation that solves P\+O\+M\+D\+Ps. The \hyperlink{classpomdp_1_1POMDP}{P\+O\+M\+DP} class also contains two methods that are crucial in solving P\+O\+M\+D\+Ps. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+(self, model\+\_\+filename, policy\+\_\+filename)}{__init__(self, model_filename, policy_filename)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdp.\+P\+O\+M\+D\+P.\+\_\+\+\_\+init\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{model\+\_\+filename, }
+\item[{}]{policy\+\_\+filename}
+\end{DoxyParamCaption}
+)}\hypertarget{classpomdp_1_1POMDP_ac2ca0e5dba34bdfae5f27ec37d653246}{}\label{classpomdp_1_1POMDP_ac2ca0e5dba34bdfae5f27ec37d653246}
+
+
+The constructor. 
+
+
+
+\subsection{Member Function Documentation}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!get\+\_\+optimal\+\_\+action@{get\+\_\+optimal\+\_\+action}}
+\index{get\+\_\+optimal\+\_\+action@{get\+\_\+optimal\+\_\+action}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{get\+\_\+optimal\+\_\+action(self)}{get_optimal_action(self)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdp.\+P\+O\+M\+D\+P.\+get\+\_\+optimal\+\_\+action (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}\hypertarget{classpomdp_1_1POMDP_a0c430ce50296aff651601fad666c695d}{}\label{classpomdp_1_1POMDP_a0c430ce50296aff651601fad666c695d}
+
+
+Documentation for a method. 
+
+This method multiplies current belief over states with one by one policy vector. Depending on the current belief, product that gives the biggest result defines the next best action. 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self.\+optimal\+\_\+actions\mbox{[}max\+\_\+index\mbox{]} The number index of the best action. 
+\end{DoxyReturn}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!update\+\_\+belief@{update\+\_\+belief}}
+\index{update\+\_\+belief@{update\+\_\+belief}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{update\+\_\+belief(self, action, observation)}{update_belief(self, action, observation)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdp.\+P\+O\+M\+D\+P.\+update\+\_\+belief (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{action, }
+\item[{}]{observation}
+\end{DoxyParamCaption}
+)}\hypertarget{classpomdp_1_1POMDP_ab2fefd985014e5bba21c798f9fe22218}{}\label{classpomdp_1_1POMDP_ab2fefd985014e5bba21c798f9fe22218}
+
+
+Documentation for a method. 
+
+This method calculates the new belief over states with formula that is used for solving P\+O\+M\+D\+Ps. 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer. \\
+\hline
+{\em action} & Made action. \\
+\hline
+{\em observation} & Observation based on action. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+self.\+belief Updated belief. 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!belief@{belief}}
+\index{belief@{belief}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{belief}{belief}}]{\setlength{\rightskip}{0pt plus 5cm}pomdp.\+P\+O\+M\+D\+P.\+belief}\hypertarget{classpomdp_1_1POMDP_a46a42a6a078ee5c116004a48bd36293b}{}\label{classpomdp_1_1POMDP_a46a42a6a078ee5c116004a48bd36293b}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!observation\+\_\+probs@{observation\+\_\+probs}}
+\index{observation\+\_\+probs@{observation\+\_\+probs}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{observation\+\_\+probs}{observation_probs}}]{\setlength{\rightskip}{0pt plus 5cm}pomdp.\+P\+O\+M\+D\+P.\+observation\+\_\+probs}\hypertarget{classpomdp_1_1POMDP_a768131a4afac0d4d24404d12fa5f62fe}{}\label{classpomdp_1_1POMDP_a768131a4afac0d4d24404d12fa5f62fe}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!observations@{observations}}
+\index{observations@{observations}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{observations}{observations}}]{\setlength{\rightskip}{0pt plus 5cm}pomdp.\+P\+O\+M\+D\+P.\+observations}\hypertarget{classpomdp_1_1POMDP_ab936d6506f8610ccb8be4b58de8ec0e5}{}\label{classpomdp_1_1POMDP_ab936d6506f8610ccb8be4b58de8ec0e5}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!optimal\+\_\+actions@{optimal\+\_\+actions}}
+\index{optimal\+\_\+actions@{optimal\+\_\+actions}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{optimal\+\_\+actions}{optimal_actions}}]{\setlength{\rightskip}{0pt plus 5cm}pomdp.\+P\+O\+M\+D\+P.\+optimal\+\_\+actions}\hypertarget{classpomdp_1_1POMDP_a4ddaceb23f7c3e37afc0da249475117d}{}\label{classpomdp_1_1POMDP_a4ddaceb23f7c3e37afc0da249475117d}
+\index{pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}!transition\+\_\+probs@{transition\+\_\+probs}}
+\index{transition\+\_\+probs@{transition\+\_\+probs}!pomdp\+::\+P\+O\+M\+DP@{pomdp\+::\+P\+O\+M\+DP}}
+\subsubsection[{\texorpdfstring{transition\+\_\+probs}{transition_probs}}]{\setlength{\rightskip}{0pt plus 5cm}pomdp.\+P\+O\+M\+D\+P.\+transition\+\_\+probs}\hypertarget{classpomdp_1_1POMDP_a3561b1af2cc307f204a67b99580faff7}{}\label{classpomdp_1_1POMDP_a3561b1af2cc307f204a67b99580faff7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/vladimir/\+Z\+R/python-\/pomdp/src/\hyperlink{pomdp_8py}{pomdp.\+py}\end{DoxyCompactItemize}

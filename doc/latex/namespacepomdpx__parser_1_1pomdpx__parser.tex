@@ -1,0 +1,105 @@
+\hypertarget{namespacepomdpx__parser_1_1pomdpx__parser}{}\section{pomdpx\+\_\+parser.\+pomdpx\+\_\+parser Namespace Reference}
+\label{namespacepomdpx__parser_1_1pomdpx__parser}\index{pomdpx\+\_\+parser.\+pomdpx\+\_\+parser@{pomdpx\+\_\+parser.\+pomdpx\+\_\+parser}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacepomdpx__parser_1_1pomdpx__parser_a346b2df7990236faf1b7ee0170c7df1b}{import\+\_\+policy} (root)
+\begin{DoxyCompactList}\small\item\em Documentation for a function. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepomdpx__parser_1_1pomdpx__parser_af21548a55890648ba98e94d7cfa3f9dc}{get\+\_\+matrix} (tag, root)
+\begin{DoxyCompactList}\small\item\em Documentation for a function. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepomdpx__parser_1_1pomdpx__parser_ab3e24be8693174dfc800d57679fbe641}{get\+\_\+general\+\_\+info} (root)
+\begin{DoxyCompactList}\small\item\em Documentation for a function. \end{DoxyCompactList}\item 
+def \hyperlink{namespacepomdpx__parser_1_1pomdpx__parser_a0b4a4844aa05270e4658ab1c06ff8dff}{get\+\_\+initial\+\_\+belief} (root)
+\begin{DoxyCompactList}\small\item\em Documentation for a function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}!get\+\_\+general\+\_\+info@{get\+\_\+general\+\_\+info}}
+\index{get\+\_\+general\+\_\+info@{get\+\_\+general\+\_\+info}!pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}}
+\subsubsection[{\texorpdfstring{get\+\_\+general\+\_\+info(root)}{get_general_info(root)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdpx\+\_\+parser.\+pomdpx\+\_\+parser.\+get\+\_\+general\+\_\+info (
+\begin{DoxyParamCaption}
+\item[{}]{root}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepomdpx__parser_1_1pomdpx__parser_ab3e24be8693174dfc800d57679fbe641}{}\label{namespacepomdpx__parser_1_1pomdpx__parser_ab3e24be8693174dfc800d57679fbe641}
+
+
+Documentation for a function. 
+
+This function uses the root of a parsed X\+ML P\+O\+M\+D\+Px file, parses it and returns description od P\+O\+M\+D\+Px and basic variables that define P\+O\+M\+DP. First list contains policy vectors. Second list contains the best actions for each policy. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of X\+ML P\+O\+M\+D\+Px file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+description Description of P\+O\+M\+D\+Px file purpose. 
+
+discount Discount. 
+
+states List of states. 
+
+actions List of actions. 
+
+observations List of possible observations. 
+\end{DoxyReturn}
+\index{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}!get\+\_\+initial\+\_\+belief@{get\+\_\+initial\+\_\+belief}}
+\index{get\+\_\+initial\+\_\+belief@{get\+\_\+initial\+\_\+belief}!pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}}
+\subsubsection[{\texorpdfstring{get\+\_\+initial\+\_\+belief(root)}{get_initial_belief(root)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdpx\+\_\+parser.\+pomdpx\+\_\+parser.\+get\+\_\+initial\+\_\+belief (
+\begin{DoxyParamCaption}
+\item[{}]{root}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepomdpx__parser_1_1pomdpx__parser_a0b4a4844aa05270e4658ab1c06ff8dff}{}\label{namespacepomdpx__parser_1_1pomdpx__parser_a0b4a4844aa05270e4658ab1c06ff8dff}
+
+
+Documentation for a function. 
+
+This function uses the root of a parsed X\+ML P\+O\+M\+D\+Px file, parses it and returns initial belief over states. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of X\+ML P\+O\+M\+D\+Px file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+isb\+\_\+vector Vector that contains initial belief over states 
+\end{DoxyReturn}
+\index{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}!get\+\_\+matrix@{get\+\_\+matrix}}
+\index{get\+\_\+matrix@{get\+\_\+matrix}!pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}}
+\subsubsection[{\texorpdfstring{get\+\_\+matrix(tag, root)}{get_matrix(tag, root)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdpx\+\_\+parser.\+pomdpx\+\_\+parser.\+get\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{}]{tag, }
+\item[{}]{root}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepomdpx__parser_1_1pomdpx__parser_af21548a55890648ba98e94d7cfa3f9dc}{}\label{namespacepomdpx__parser_1_1pomdpx__parser_af21548a55890648ba98e94d7cfa3f9dc}
+
+
+Documentation for a function. 
+
+This function uses the root of a parsed X\+ML P\+O\+M\+D\+Px file, parses it and returns wanted dictionary depending on the input tag. 
+\begin{DoxyParams}{Parameters}
+{\em tag} & Name of the tag that defines which part of P\+O\+M\+D\+Px wants to be put in dictionary. \\
+\hline
+{\em root} & Root of X\+ML P\+O\+M\+D\+Px file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dictionary Dictionary that connects wanted matrices with their transitions or observations. 
+\end{DoxyReturn}
+\index{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}!import\+\_\+policy@{import\+\_\+policy}}
+\index{import\+\_\+policy@{import\+\_\+policy}!pomdpx\+\_\+parser\+::pomdpx\+\_\+parser@{pomdpx\+\_\+parser\+::pomdpx\+\_\+parser}}
+\subsubsection[{\texorpdfstring{import\+\_\+policy(root)}{import_policy(root)}}]{\setlength{\rightskip}{0pt plus 5cm}def pomdpx\+\_\+parser.\+pomdpx\+\_\+parser.\+import\+\_\+policy (
+\begin{DoxyParamCaption}
+\item[{}]{root}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacepomdpx__parser_1_1pomdpx__parser_a346b2df7990236faf1b7ee0170c7df1b}{}\label{namespacepomdpx__parser_1_1pomdpx__parser_a346b2df7990236faf1b7ee0170c7df1b}
+
+
+Documentation for a function. 
+
+This function uses the root of a parsed X\+ML policy file, parses it and returns two lists. First list contains policy vectors. Second list contains the best actions for each policy. 
+\begin{DoxyParams}{Parameters}
+{\em root} & Root of X\+ML policy file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+policy\+\_\+vectors\+\_\+field List of policy vectors. 
+
+best\+\_\+action\+\_\+list List of best actions. 
+\end{DoxyReturn}

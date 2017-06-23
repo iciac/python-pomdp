@@ -1,20 +1,15 @@
+## Documentation for this module.
+## This Python module parses POMDPx files and returns vectors and values that are used for belief update.
+
 import numpy as np
 
-
-def get_actions(Belief, PolicyVectorsList, BestActionsList):
-
-    max_value = 0
-    index = 0
-    for m in PolicyVectorsList:
-        print index
-        if np.dot(Belief, np.transpose(m)) > max_value:
-            max_value = np.dot(Belief, np.transpose(m))
-            max_index = index
-        index += 1
-
-    return BestActionsList[max_index]
-
-
+## Documentation for a function.
+## This function uses the root of a parsed XML policy file, parses it and returns two lists.
+## First list contains policy vectors.
+## Second list contains the best actions for each policy.
+## @param root Root of XML policy file.
+## @returns policy_vectors_field List of policy vectors.
+## @returns best_action_list List of best actions.
 def import_policy(root):
 
     for i in root.findall('AlphaVector'):
@@ -31,7 +26,12 @@ def import_policy(root):
 
     return policy_vectors_field, best_action_list
 
-
+## Documentation for a function.
+## This function uses the root of a parsed XML POMDPx file, parses it and returns wanted dictionary
+## depending on the input tag.
+## @param tag Name of the tag that defines which part of POMDPx wants to be put in dictionary.
+## @param root Root of XML POMDPx file.
+## @returns dictionary Dictionary that connects wanted matrices with their transitions or observations.
 def get_matrix(tag, root):
 
     dictionary = {}
@@ -57,7 +57,17 @@ def get_matrix(tag, root):
 
     return dictionary
 
-
+## Documentation for a function.
+## This function uses the root of a parsed XML POMDPx file, parses it and returns description od POMDPx
+## and basic variables that define POMDP.
+## First list contains policy vectors.
+## Second list contains the best actions for each policy.
+## @param root Root of XML POMDPx file.
+## @returns description Description of POMDPx file purpose.
+## @returns discount Discount.
+## @returns states List of states.
+## @returns actions List of actions.
+## @returns observations List of possible observations.
 def get_general_info(root):
 
     for child in root:
@@ -91,7 +101,10 @@ def get_general_info(root):
 
     return description, discount, states, actions, observations
 
-
+## Documentation for a function.
+## This function uses the root of a parsed XML POMDPx file, parses it and returns initial belief over states.
+## @param root Root of XML POMDPx file.
+## @returns isb_vector Vector that contains initial belief over states
 def get_initial_belief(root):
 
     for k in root.findall('InitialStateBelief'):
