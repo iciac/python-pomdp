@@ -45,5 +45,7 @@ https://www.youtube.com/watch?v=LZ5E4vEhsKs&t=966s
 ## Authors
 
 ***student: Vladimir Slosic***
+
 ***mentor: Frano Petric***
-Faculty of electrotechnics and computing, Zagreb, Croatia, 2017
+
+Faculty of Electrical Engineering and Comupting, University of Zagreb, Croatia, 2017
