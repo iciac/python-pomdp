@@ -54,6 +54,9 @@ class POMDP:
         else:
             self.belief = O * next_state_prior
 
+        if np.linalg.norm(self.belief) == 0:
+            self.belief = next_state_prior
+
         self.belief /= np.linalg.norm(self.belief)
 
         return self.belief
