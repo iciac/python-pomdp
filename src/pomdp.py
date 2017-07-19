@@ -48,7 +48,12 @@ class POMDP:
 
         T = self.transition_probs[action]
         O = self.observation_probs[action][:, self.observations.index(observation)]
-        self.belief = O * np.dot(np.transpose(T), self.belief)
+        next_state_prior = np.dot(np.transpose(T), self.belief)
+        if np.count_nonzero(next_state_prior) == 1:
+            self.belief = next_state_prior
+        else:
+            self.belief = O * next_state_prior
+
         self.belief /= np.linalg.norm(self.belief)
 
         return self.belief
